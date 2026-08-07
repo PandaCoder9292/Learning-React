@@ -1,3 +1,80 @@
-#heading{
-    color: chartreuse;
+.header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+}
+
+.logo {
+  width: 110px;
+}
+
+.nav-items > ul {
+  display: flex;
+  font-size: 24px;
+  padding: 0px 20px;
+  list-style-type: none;
+}
+
+.nav-items > ul > li {
+  padding: 10px;
+  margin: 10px;
+}
+
+.res-card {
+  margin: 5px;
+  padding: 5px;
+  width: 200px;
+}
+
+.res-card:hover {
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+.search {
+  padding: 10px;
+}
+
+.res-logo {
+  width: 195px;
+  height: 140px;
+}
+
+.res-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  margin: 10px;
+  cursor: pointer;
+}
+
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+.shimmer-card {
+  width: 200px;
+  height: 300px;
+  border-radius: 10px;
+  color: transparent;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+
+  animation: shimmer 1.5s infinite linear;
+}
+
+.login {
+  padding: 0 20px;
+  cursor: pointer;
+  height: 60px;
+  width: 80px;
+}
+
+.filter {
+  display: flex;
 }

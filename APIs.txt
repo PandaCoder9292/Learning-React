@@ -1,0 +1,4 @@
+https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=29.38850&lng=76.96690&restaurantId=124178&catalog_qa=undefined&submitAction=ENTER
+
+
+restaurantId=124178   --> change this restaurantId for each Resturant
