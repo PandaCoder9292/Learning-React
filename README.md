@@ -100,3 +100,11 @@ json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
 //Important Stuff->
 //React Fiber
 //Whenever my state variable changes (updates), react triggers a reconciliation cycle(re-render the Whole component) -> diff algorithm used and only differences are changed
+
+# useEffect (() => {}, []) ----> renders every time our component renders
+
+//e.g -----> useEffect(() => {
+console.log("useEffect Hook called");
+});
+
+{/\*\*/} --> comments in JSX
