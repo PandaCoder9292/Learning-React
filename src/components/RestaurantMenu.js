@@ -1,18 +1,19 @@
 import React from "react";
-import { useEffect, useState } from "react";
+//import { useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
-import { ALL_MENU_ITEMS } from "../utils/mockMenu";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
   const location = useLocation();
 
-  const [randomMenu, setrandomMenu] = useState([]);
+  //const [randomMenu, setrandomMenu] = useState([]);
 
-  useEffect(() => {
-    const data = [...ALL_MENU_ITEMS].sort(() => 0.5 - Math.random());
-    setrandomMenu(data.slice(0, 15));
-  }, [resId]);
+  const randomMenu = useRestaurantMenu();
+  // useEffect(() => {
+  //   const data = [...ALL_MENU_ITEMS].sort(() => 0.5 - Math.random());
+  //   setrandomMenu(data.slice(0, 15));
+  // }, [resId]);
 
   const {
     name = "Restaurant Name",

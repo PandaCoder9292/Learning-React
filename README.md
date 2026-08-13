@@ -13,11 +13,12 @@ Namaste
 
 #React Components - Just basic JS functions which returns JSX elements.
 
-<!-- const HeadingComp = () =>(
-    <div>
-        <h1>Nameste Learning React Functional</h1>
-    </div>
-); -->
+const HeadingComp = () =>(
+
+<div>
+<h1>Nameste Learning React Functional</h1>
+</div>
+);
 
 //nested JXS elements in react component⬆️ .
 
@@ -29,33 +30,35 @@ Main 3 components are
 
 Using Props->
 
-<!-- const RestaurantCard = ({resName, cuisine, ratings, time}) =>{
-    console.log(props);
-    return (
-        <div className="res-card" style={{backgroundColor: "#f0f0f0"}}>
-            <img className="res-logo" alt="Res-Photo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX30s4-t69QY8uHxQTYgaE3wQIXKYFELTH73K0ZLKQCg&s" />
-            <h3>{resName}</h3>
-            <h4>{cuisine}</h4>
-            <h4>{ratings}</h4>
-            <h4>{time}</h4>
-        </div>
-    );
-}; -->                                 {Destructuring on the flight}
+const RestaurantCard = ({resName, cuisine, ratings, time}) =>{
+console.log(props);
+return (
+
+<div className="res-card" style={{backgroundColor: "#f0f0f0"}}>
+<img className="res-logo" alt="Res-Photo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX30s4-t69QY8uHxQTYgaE3wQIXKYFELTH73K0ZLKQCg&s" />
+<h3>{resName}</h3>
+<h4>{cuisine}</h4>
+<h4>{ratings}</h4>
+<h4>{time}</h4>
+</div>
+);
+}; {Destructuring on the flight}
 
 else we can use like->
 
-<!-- const RestaurantCard = (props) =>{
-    console.log(props);
-    return (
-        <div className="res-card" style={{backgroundColor: "#f0f0f0"}}>
-            <img className="res-logo" alt="Res-Photo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX30s4-t69QY8uHxQTYgaE3wQIXKYFELTH73K0ZLKQCg&s" />
-            <h3>{props.resName}</h3>
-            <h4>{props.cuisine}</h4>
-            <h4>{props.ratings}</h4>
-            <h4>{props.time}</h4>
-        </div>
-    );
-}; -->
+const RestaurantCard = (props) =>{
+console.log(props);
+return (
+
+<div className="res-card" style={{backgroundColor: "#f0f0f0"}}>
+<img className="res-logo" alt="Res-Photo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX30s4-t69QY8uHxQTYgaE3wQIXKYFELTH73K0ZLKQCg&s" />
+<h3>{props.resName}</h3>
+<h4>{props.cuisine}</h4>
+<h4>{props.ratings}</h4>
+<h4>{props.time}</h4>
+</div>
+);
+};
 
 //Optional Chaining ->
 const {cloudImageinaryID, name, cuisines, avgRating, costOfTwo, deliveryTime} = resData?.data;
@@ -108,3 +111,19 @@ console.log("useEffect Hook called");
 });
 
 {/\*\*/} --> comments in JSX
+
+# Important thing acc. to Interviews ----> (down)
+
+Class Based Components ->
+class UserCard extends React.Component {
+render(){
+return (<{/_ It returns some peice of JSX _/}>);
+}
+}
+
+Order of Execution in Class Based Components --->
+About Constructor
+About Render 1
+About Render 2 --> this is console.log ed after <UserClass />
+UserClass Constructor
+UserClass Render
