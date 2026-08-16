@@ -1,15 +1,18 @@
-import RestaurantCard from "./RestaurantCard";
-import { useState, useEffect } from "react";
+import RestaurantCard, { WithPromotedLabel } from "./RestaurantCard";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [listOfReastaurants, setlistOfReastaurants] = useState([]);
   const [filteredRestaurant, setfilteredRestaurant] = useState([]);
 
   const [searchText, setsearchText] = useState("");
-  //console.log("Hello re-render");
+  //console.log("Body re-render", listOfReastaurants);
+
+  const RestaurantCardPromoted = WithPromotedLabel(RestaurantCard);
 
   useEffect(() => {
     fetchData();
@@ -33,6 +36,8 @@ const Body = () => {
 
   const onlineState = useOnlineStatus();
 
+  const { loggedInUser, setuserName } = useContext(UserContext);
+
   if (onlineState === false) {
     return (
       <h1>
@@ -49,7 +54,7 @@ const Body = () => {
         <div className="search m-4 p-4">
           <input
             type="text"
-            className="search-box border border-solid border-blue-400 focus-ring-2"
+            className="search-box border border-2 border-solid border-blue-400 focus-ring-2"
             value={searchText}
             onChange={(e) => {
               setsearchText(e.target.value);
@@ -72,7 +77,7 @@ const Body = () => {
         </div>
         <div className="search m-4 p-4 flex items-center ">
           <button
-            className="filter-btn px-4 py-2 bg-gray-100 m-4 rounded-lg"
+            className="filter-btn px-4 py-2 bg-green-100 m-4 rounded-lg"
             onClick={() => {
               const filteredList = listOfReastaurants.filter(
                 (res) => res.info.avgRating >= 4.5,
@@ -82,6 +87,14 @@ const Body = () => {
           >
             Top Rated Restaurant
           </button>
+        </div>
+        <div className="search m-4 p-4 flex items-center ">
+          <label className="font-medium">User Name : </label>
+          <input
+            className="border border-black border-solid border-2 px-2"
+            value={loggedInUser}
+            onChange={(e) => setuserName(e.target.value)}
+          />
         </div>
       </div>
       <div className="res-container flex flex-wrap ">
@@ -96,7 +109,11 @@ const Body = () => {
               deliveryTime: restaurant.info.sla?.slaString,
             }}
           >
-            <RestaurantCard resData={restaurant} />
+            {restaurant.info.avgRating >= 4.6 ? (
+              <RestaurantCardPromoted resData={restaurant} />
+            ) : (
+              <RestaurantCard resData={restaurant} />
+            )}
           </Link>
         ))}
       </div>

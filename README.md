@@ -127,3 +127,5 @@ About Render 1
 About Render 2 --> this is console.log ed after <UserClass />
 UserClass Constructor
 UserClass Render
+
+# Redux Toolkit
